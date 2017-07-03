@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Details</title>
+</head>
+<body>
+    <div class="municipals container">
+        <p th:text="${county.name}">Name of county</p>
+        <div th:each="municipality : ${municipalities}">
+            <a th:href="@{|/municipalities/${municipality.id}|}" th:text="${municipality.name}">Municipality name</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

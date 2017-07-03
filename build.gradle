@@ -1,0 +1,42 @@
+group 'se.soahki'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories{
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.4.RELEASE'
+    }
+}
+
+// Apply the Spring Boot plugin (previously: 'spring-boot')
+apply plugin: 'org.springframework.boot'
+
+// Apply the Java plugin (expects src/main/java to be source folder)
+apply plugin: 'java'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.10.Final'
+
+    // https://mvnrepository.com/artifact/org.springframework/spring-orm
+    compile group: 'org.springframework', name: 'spring-orm', version: '4.3.9.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '1.5.4.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-dbcp
+    compile group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: '8.0.32'
+
+    // https://mvnrepository.com/artifact/com.h2database/h2
+    compile group: 'com.h2database', name: 'h2', version: '1.4.196'
+
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List of counties</title>
+</head>
+<body>
+    <p>This is testing a spring app</p>
+    <a href="/">Back to start page</a>
+
+    <div class="counties container">
+        <h2>Counties</h2>
+
+        <div th:each="county : ${counties}">
+            <a th:href="@{|/counties/${county.id}|}" th:text="${county.name}">County name</a>
+        </div>
+
+    </div>
+</body>
+</html>
