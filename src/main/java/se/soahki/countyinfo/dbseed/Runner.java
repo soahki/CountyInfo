@@ -1,5 +1,6 @@
 package se.soahki.countyinfo.dbseed;
 
+import se.soahki.countyinfo.dbseed.statistics.StatisticsParser;
 import se.soahki.countyinfo.model.County;
 import se.soahki.countyinfo.model.Municipality;
 
@@ -16,7 +17,8 @@ import java.util.List;
 public class Runner {
 
     public static void main(String[] args) throws Exception {
-
+        // StatisticsParser statisticsParser = new StatisticsParser();
+        // statisticsParser.run();
     }
 
     private static void seed() throws Exception{
