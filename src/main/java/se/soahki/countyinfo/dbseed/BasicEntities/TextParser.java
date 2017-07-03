@@ -1,4 +1,4 @@
-package se.soahki.countyinfo.dbseed;
+package se.soahki.countyinfo.dbseed.BasicEntities;
 
 import se.soahki.countyinfo.model.County;
 import se.soahki.countyinfo.model.Municipality;

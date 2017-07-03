@@ -1,4 +1,4 @@
-package se.soahki.countyinfo.dbseed.statistics;
+package se.soahki.countyinfo.dbseed.statistics.population;
 
 import se.soahki.countyinfo.model.Population;
 

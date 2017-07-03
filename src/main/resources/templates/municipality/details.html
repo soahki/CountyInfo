@@ -7,7 +7,11 @@
 <body>
 <div class="municipals container">
     <h2 th:text="${municipality.name}">Name of county</h2>
-
+    <p>The population statistics for the last 10 years: </p>
+    <p>YEAR : INHABITANTS</p>
+    <div th:each="population : ${populations}">
+        <p th:text="|${population.year}: ${population.inhabitants}|"></p>
+    </div>
 
 
 </div>

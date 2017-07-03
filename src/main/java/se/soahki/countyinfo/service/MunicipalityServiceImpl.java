@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import se.soahki.countyinfo.dao.MunicipalityDao;
 import se.soahki.countyinfo.model.Municipality;
+import se.soahki.countyinfo.model.Population;
 
 import java.util.List;
 
@@ -37,4 +38,5 @@ public class MunicipalityServiceImpl implements MunicipalityService {
     public void delete(Municipality municipality) {
         municipalityDao.delete(municipality);
     }
+
 }

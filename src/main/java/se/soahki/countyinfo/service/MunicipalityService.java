@@ -1,6 +1,7 @@
 package se.soahki.countyinfo.service;
 
 import se.soahki.countyinfo.model.Municipality;
+import se.soahki.countyinfo.model.Population;
 
 import java.util.List;
 

@@ -53,8 +53,13 @@ public class PopulationDaoImpl implements PopulationDao {
         List<Population> populations = findAll();
         List<Population> municipalityPopulations = new ArrayList<>();
         for (Population population : populations) {
-            if (population.getMunicipality().getCode().equals(municipality.getCode())) {
+            Municipality popMun = population.getMunicipality();
+            if (popMun.getCode().equals(municipality.getCode())) {
+                System.out.println("\n\nADDED: " + population.getYear() + "\n\n");
                 municipalityPopulations.add(population);
+                if (population.getYear() == 2016) {
+                    break;
+                }
             }
         }
         return municipalityPopulations;
