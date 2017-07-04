@@ -3,8 +3,6 @@ package se.soahki.countyinfo.dao;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.SessionFactoryBuilder;
-import org.hibernate.internal.SessionFactoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import se.soahki.countyinfo.model.County;

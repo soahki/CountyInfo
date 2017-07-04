@@ -6,7 +6,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import se.soahki.countyinfo.model.Municipality;
-import se.soahki.countyinfo.model.Population;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -39,8 +38,9 @@ public class MunicipalityDaoImpl implements MunicipalityDao {
         Session session = sessionFactory.openSession();
 
         Municipality municipality = session.get(Municipality.class, id);
-        session.close();
         Hibernate.initialize(municipality.getCounty());
+        Hibernate.initialize(municipality.getInhabitants());
+        session.close();
         return municipality;
     }
 

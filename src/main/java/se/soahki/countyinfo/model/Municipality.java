@@ -17,7 +17,7 @@ public class Municipality {
     @ManyToOne
     private County county;
 
-    @OneToMany(mappedBy = "municipality", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "municipality")
     private List<Population> inhabitants;
 
     public Municipality() {
