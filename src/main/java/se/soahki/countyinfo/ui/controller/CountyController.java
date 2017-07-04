@@ -40,7 +40,7 @@ public class CountyController {
     }
 
     @RequestMapping("/counties/{countyId}")
-    public String category(@PathVariable Long countyId, Model model) {
+    public String county(@PathVariable Long countyId, Model model) {
         County county = countyService.findById(countyId);
         List<Municipality> municipalities = county.getMunicipalities();
 
@@ -49,42 +49,5 @@ public class CountyController {
         return "county/details";
     }
 
-
-    // Form for adding a new county
-    @RequestMapping("counties/add")
-    public String formNewCounty(Model model) {
-        // TODO: Add model attributes needed for new form
-        if(!model.containsAttribute("county")) {
-            model.addAttribute("county",new County());
-        }
-        model.addAttribute("action","/categories");
-        model.addAttribute("heading","New Category");
-        model.addAttribute("submit","Add");
-
-        return "county/form";
-    }
-
-    // Add a county
-    @RequestMapping(value = "/counties", method = RequestMethod.POST)
-    public String addCounty(@Valid County county, BindingResult result, RedirectAttributes redirectAttributes) {
-        // TODO: Add category if valid data was received
-        if(result.hasErrors()) {
-            // Include validation errors upon redirect
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.category",result);
-
-            // Add  category if invalid was received
-            redirectAttributes.addFlashAttribute("county",county);
-
-            // Redirect back to the form
-            return "redirect:/counties/add";
-        }
-
-        countyService.save(county);
-
-        redirectAttributes.addFlashAttribute("flash",new FlashMessage("Category successfully added!", FlashMessage.Status.SUCCESS));
-
-        // TODO: Redirect browser to /categories
-        return "redirect:/counties";
-    }
 
 }
