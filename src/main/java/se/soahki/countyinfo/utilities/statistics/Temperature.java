@@ -1,4 +1,4 @@
-package se.soahki.countyinfo.tools.statistics;
+package se.soahki.countyinfo.utilities.statistics;
 
 import javafx.scene.paint.Color;
 

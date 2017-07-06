@@ -1,4 +1,4 @@
-package se.soahki.countyinfo.tools;
+package se.soahki.countyinfo.utilities;
 
 import javafx.geometry.Dimension2D;
 import javafx.scene.image.Image;

@@ -1,4 +1,4 @@
-package se.soahki.countyinfo.dbseed.BasicEntities;
+package se.soahki.countyinfo.utilities.dbseed.BasicEntities;
 
 import se.soahki.countyinfo.model.County;
 import se.soahki.countyinfo.model.Municipality;
@@ -9,8 +9,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class TextParser {
     private List<County> counties = new ArrayList<>();
