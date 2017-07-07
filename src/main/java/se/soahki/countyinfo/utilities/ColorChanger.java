@@ -1,31 +1,21 @@
 package se.soahki.countyinfo.utilities;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.PixelReader;
-import javafx.scene.image.PixelWriter;
-import javafx.scene.image.WritableImage;
-import javafx.scene.paint.Color;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class ColorChanger {
-
-    public static WritableImage colorImage(Image image, Color originalColor, Color newColor) {
-
-        int width = (int) image.getWidth();
-        int height = (int) image.getHeight();
-        PixelReader reader = image.getPixelReader();
-
-        WritableImage writableImage = new WritableImage(width, height);
-        PixelWriter writer = writableImage.getPixelWriter();
+    public static BufferedImage colorImageAwt(BufferedImage image, Color originalColor, Color newColor) {
+        int width = image.getWidth();
+        int height = image.getHeight();
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                if (reader.getColor(x, y).equals(originalColor)) {
-                    writer.setColor(x, y, newColor);
-                } else {
-                    writer.setColor(x, y, reader.getColor(x, y));
+                if(image.getRGB(x,y) == originalColor.getRGB()) {
+                    image.setRGB(x, y, newColor.getRGB());
                 }
             }
         }
-        return writableImage;
+
+        return image;
     }
 }

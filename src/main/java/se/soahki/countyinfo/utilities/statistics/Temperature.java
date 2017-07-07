@@ -1,6 +1,7 @@
 package se.soahki.countyinfo.utilities.statistics;
 
-import javafx.scene.paint.Color;
+
+import java.awt.*;
 
 public class Temperature {
     private double min;
@@ -16,21 +17,35 @@ public class Temperature {
 
     private void normalizer() {
         double difference = Math.abs(max - min);
-        increment = difference / (255+255+255);
+        increment = (255+255+255)/(difference + 1);
     }
 
     public Color heatOfValue(double value) {
         double temperature = value * increment;
-        double red = 0;
-        double green = 0;
-        double blue = 0;
-        if (temperature < 255) {
-            blue = (int) temperature;
-        } else if (temperature < (255+255)) {
-            green = (int) (temperature - 255);
-        } else {
-            red = (int) (temperature - (255 + 255));
+        int red = 0;
+        int green = 0;
+        int blue = 0;
+
+        blue = (int) temperature;
+        if (temperature > 255) {
+            blue = 255;
+            temperature -= 255;
+            green = (int) temperature;
+            if (temperature > 255) {
+                temperature -= 255;
+                red = (int) temperature;
+                blue = 255 - red;
+                green = 255 - red;
+            }
         }
-        return new Color(red, green, blue, 1);
+        if (red > 255) {
+            red = 255;
+        }if (green > 255) {
+            green = 255;
+        }if (blue > 255) {
+            blue = 255;
+        }
+
+        return new Color(red, green, blue, 255);
     }
 }
