@@ -1,6 +1,4 @@
-package se.soahki.countyinfo.dbseed.statistics.population;
-
-import se.soahki.countyinfo.model.Population;
+package se.soahki.countyinfo.utilities.dbseed.statistics.population;
 
 import java.io.*;
 import java.sql.*;

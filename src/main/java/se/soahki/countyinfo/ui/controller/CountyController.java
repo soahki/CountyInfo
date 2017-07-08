@@ -28,7 +28,9 @@ public class CountyController {
     private MunicipalityService municipalityService;
 
     @RequestMapping("/")
-    public String start() {
+    public String start(Model model) {
+        String imgUrl = "./map/Sweden_exempel.png";
+        model.addAttribute("image", imgUrl);
         return "index";
     }
 
