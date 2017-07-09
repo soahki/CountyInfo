@@ -2,6 +2,7 @@ package se.soahki.countyinfo.ui.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import se.soahki.countyinfo.model.County;
@@ -26,14 +27,33 @@ public class ImageController {
     @Autowired
     CountyService countyService;
 
-   // @RequestMapping("/maps/sweden.png")
-   // @ResponseBody
+    @RequestMapping("/maps/sweden.png")
+    @ResponseBody
     public byte[] swedenMap() throws IOException {
         String path = "./src/main/resources/static/map/Sweden_exempel.png";
         File fileSweden = new File(path);
         BufferedImage image = ImageIO.read(fileSweden);
 
-        String pathtwo = "./src/main/resources/static/map/regions/AB.png";
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write((RenderedImage) image, "png", baos);
+
+        return baos.toByteArray();
+    }
+
+    @RequestMapping("/maps/heatmap.png")
+    @ResponseBody
+    public byte[] counties() throws IOException {
+        return HeatMap.heatCounties(countyService.findAll());
+    }
+
+    @RequestMapping("/maps/{countyId}.png")
+    @ResponseBody
+    public byte[] county(@PathVariable String countyId) throws IOException {
+        String path = "./src/main/resources/static/map/Sweden_exempel.png";
+        File fileSweden = new File(path);
+        BufferedImage image = ImageIO.read(fileSweden);
+
+        String pathtwo = "./src/main/resources/static/map/regions/" + countyId + ".png";
         File fileCounty = new File(pathtwo);
         BufferedImage imageForeground = ImageIO.read(fileCounty);
 
@@ -41,15 +61,6 @@ public class ImageController {
         Image renderedImage = ImageRenderer.renderImageOnImage(image, changedImage);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ImageIO.write((RenderedImage) renderedImage, "png", baos);
-        byte[] res = baos.toByteArray();
-
-        //return Files.readAllBytes(file.toPath());
-        return res;
-    }
-
-    @RequestMapping("/maps/sweden.png")
-    @ResponseBody
-    public byte[] counties() throws IOException {
-        return HeatMap.heatCounties(countyService.findAll());
+        return baos.toByteArray();
     }
 }

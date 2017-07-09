@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>TESTING! ;)</title>
-</head>
+<head th:replace="layout :: head('soahki:Länsservice')"></head>
 <body>
-    <p>This is testing a spring app</p>
-    <a href="counties">List of counties</a>
-    <img th:src="@{./maps/sweden.png}" alt=""/>
+
+<div th:replace="layout :: nav"></div>
+<div th:replace="layout :: flash"></div>
+<a href="counties">List of counties</a>
+<img th:src="@{./maps/sweden.png}" alt=""/>
 
 </body>
 </html>

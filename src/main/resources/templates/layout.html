@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:fragment="head(page_title)" lang="en">
+    <meta charset="UTF-8" />
+    <title th:text="'soahki |' + ${page_title}">soahki: länsinformation</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" th:href="@{/css/common.css}"/>
+</head>
+<body>
+
+<div th:fragment="nav" class="topnav">
+    <ul>
+        <li th:classappend="${#httpServletRequest.servletPath.equals('/') ? 'active' : ''}"><a th:href="@{/}">Hem</a></li>
+        <li th:classappend="${#httpServletRequest.servletPath.equals('/stats') ? 'active' : ''}"><a th:href="@{/statistik}">Statiskservice</a></li>
+        <li th:classappend="${#httpServletRequest.servletPath.equals('/om') ? 'active' : ''}"><a th:href="@{/om}">Om sidan</a></li>
+    </ul>
+</div>
+
+<div th:fragment="flash" th:if="${flash != null}" class="container">
+    <i class="right material-icons" data-close="">stäng</i>
+    <div th:classappend="${#strings.toLowerCase(flash.status)}" th:text="${flash.message}" class="flash"></div>
+</div>
+
+</body>
+</html>
