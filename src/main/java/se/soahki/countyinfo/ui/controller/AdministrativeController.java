@@ -10,4 +10,9 @@ public class AdministrativeController {
     public String about() {
         return "om";
     }
+
+    @RequestMapping("/statistik")
+    public String stats() {
+        return "statistik";
+    }
 }

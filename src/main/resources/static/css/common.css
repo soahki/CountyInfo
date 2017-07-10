@@ -5,6 +5,16 @@ body {
     background-color: #f0f4ef;
 }
 
+.map {
+    width: 90rem;
+    height: 35rem;
+}
+
+.map img {
+    width: auto;
+    height: 100%;
+}
+
 .text {
     border-radius: 2.5rem;
     width: 76.8rem;

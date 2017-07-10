@@ -11,7 +11,7 @@
 <div th:fragment="nav" class="topnav">
     <ul>
         <li th:classappend="${#httpServletRequest.servletPath.equals('/') ? 'active' : ''}"><a th:href="@{/}">Hem</a></li>
-        <li th:classappend="${#httpServletRequest.servletPath.equals('/stats') ? 'active' : ''}"><a th:href="@{/statistik}">Statiskservice</a></li>
+        <li th:classappend="${#httpServletRequest.servletPath.equals('/statistik') ? 'active' : ''}"><a th:href="@{/statistik}">Statiskservice</a></li>
         <li th:classappend="${#httpServletRequest.servletPath.equals('/om') ? 'active' : ''}"><a th:href="@{/om}">Om sidan</a></li>
     </ul>
 </div>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<head th:replace="layout :: head('Om soahki:länsservice')"></head>
 <body>
+<div th:replace="layout :: nav"></div>
+<div th:replace="layout :: flash"></div>
+<div class="map">
+    <img th:src="@{./maps/sweden.png}" alt=""/>
+</div>
 
 </body>
 </html>
