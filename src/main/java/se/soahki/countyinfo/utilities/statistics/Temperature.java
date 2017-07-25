@@ -40,10 +40,18 @@ public class Temperature {
         }
         if (red > 255) {
             red = 255;
-        }if (green > 255) {
+        } else if (red < 0) {
+            red = 0;
+        }
+        if (green > 255) {
             green = 255;
-        }if (blue > 255) {
+        } else if (green < 0) {
+            green = 5;
+        }
+        if (blue > 255) {
             blue = 255;
+        } else if (blue < 0) {
+            blue = 5;
         }
 
         return new Color(red, green, blue, 255);

@@ -25,6 +25,11 @@ public class PopulationServiceImpl implements PopulationService {
     }
 
     @Override
+    public List<Population> findByYear(Integer year) {
+        return populationDao.findByYear(year);
+    }
+
+    @Override
     public List<Population> findByMunicipality(Municipality municipality) {
         return populationDao.findByMunicipality(municipality);
     }

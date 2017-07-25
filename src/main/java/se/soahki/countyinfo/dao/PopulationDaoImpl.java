@@ -8,8 +8,11 @@ import se.soahki.countyinfo.model.County;
 import se.soahki.countyinfo.model.Municipality;
 import se.soahki.countyinfo.model.Population;
 
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
+import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +48,29 @@ public class PopulationDaoImpl implements PopulationDao {
             }
         }
         return countyPopulations;
+    }
+
+    @Override
+    public List<Population> findByYear(Integer year) {
+        Session session = sessionFactory.openSession();
+
+        // Create query critera
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Population> query = builder.createQuery(Population.class);
+        Root<Population> criteria = query.from(Population.class);
+        ParameterExpression<Integer> paramYear = builder.parameter(Integer.class);
+        query.select(criteria).where(builder.equal(criteria.get("year"), paramYear));
+
+        TypedQuery<Population> typedQuery = session.createQuery(query);
+        typedQuery.setParameter(paramYear, year);
+
+        // Execute criteria
+        List<Population> populations = typedQuery.getResultList();
+                //session.createQuery(query).getResultList();
+
+        session.close();
+
+        return populations;
     }
 
     @Override

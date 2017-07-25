@@ -9,6 +9,7 @@ import java.util.List;
 public interface PopulationService {
     List<Population> findAll();
     List<Population> findByCounty(County county);
+    List<Population> findByYear(Integer year);
     List<Population> findByMunicipality(Municipality municipality);
     Population findById(Long id);
     void save(Population population);
