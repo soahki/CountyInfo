@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
+@import url(https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-appearance);
 
 body {
 	font-family: 'varela round', sans-serif;
@@ -92,4 +93,16 @@ body {
 .liner {
 	padding-top: 0.3rem;
 	background-color: #798c78;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    font-size: 1.8rem;
+    margin: 0.6rem;
+    padding: 0.2rem;
+    text-decoration: none;
+    color: initial;
 }

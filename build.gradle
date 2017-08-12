@@ -36,6 +36,9 @@ dependencies {
     // https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-dbcp
     compile group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: '8.0.32'
 
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-math3
+    compile group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
+
     // https://mvnrepository.com/artifact/com.h2database/h2
     compile group: 'com.h2database', name: 'h2', version: '1.4.196'
 

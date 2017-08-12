@@ -12,7 +12,7 @@
     <div th:fragment="nav" class="topnav">
         <ul>
             <li th:classappend="${#httpServletRequest.servletPath.equals('/') ? 'active' : ''}"><a th:href="@{/}">START</a></li>
-            <li th:classappend="${#httpServletRequest.servletPath.equals('/statistik') ? 'active' : ''}"><a th:href="@{/statistik}">STATISTIKSERVICE</a></li>
+            <li th:classappend="${#httpServletRequest.servletPath.startsWith('/statistik') ? 'active' : ''}"><a th:href="@{/statistik}">STATISTIKSERVICE</a></li>
             <li th:classappend="${#httpServletRequest.servletPath.equals('/om') ? 'active' : ''}"><a th:href="@{/om}">Om tjänsten</a></li>
         </ul>
         <div class="liner"></div>
