@@ -10,40 +10,43 @@
     <div id="popData" th:if="${stats} != null">
         <div id="summary">
             <h2>BEFOLKNINGSDATA 2016</h2>
+            <h3>Översiktlig data för kommuner</h3>
             <table>
                 <tr>
-                    <th>Deskriptiv</th>
-                    <th>Värde</th>
-                </tr>
-                <tr>
                     <td>Summa:</td>
-                    <td th:text="${#numbers.formatDecimal(stats.sum, 0, 0)}"></td>
+                    <td th:text="${#numbers.formatDecimal(stats.sum, 0, 'DEFAULT', 0, 'DEFAULT')}"></td>
                 </tr>
                 <tr>
                     <td>Min:</td>
-                    <td th:text="${#numbers.formatDecimal(stats.min, 0, 0)}"></td>
+                    <td th:text="${#numbers.formatDecimal(stats.min, 0, 'DEFAULT', 0, 'DEFAULT')}"></td>
                 </tr>
                 <tr>
                     <td>Max:</td>
-                    <td th:text=" ${#numbers.formatDecimal(stats.max, 0, 0)}"></td>
+                    <td th:text=" ${#numbers.formatDecimal(stats.max, 0, 'DEFAULT', 0, 'DEFAULT')}"></td>
                 </tr>
                 <tr>
                     <td>Medel:</td>
-                    <td th:text="${#numbers.formatDecimal(stats.mean, 0, 1)}"></td>
+                    <td th:text="${#numbers.formatDecimal(stats.mean, 0, 'DEFAULT', 1, 'DEFAULT')}"></td>
                 </tr>
                 <tr>
                     <td>Median:</td>
-                    <td th:text="${#numbers.formatDecimal(stats.median, 0, 1)}"></td>
+                    <td th:text="${#numbers.formatDecimal(stats.median, 0, 'DEFAULT', 1, 'DEFAULT')}"></td>
                 </tr>
                 <tr>
                     <td>Standardavvikelse:</td>
-                    <td th:text="${#numbers.formatDecimal(stats.standardDeviation, 0, 1)}"></td>
+                    <td th:text="${#numbers.formatDecimal(stats.standardDeviation, 0, 'DEFAULT', 1, 'DEFAULT')}"></td>
                 </tr>
             </table>
         </div>
-        <div id="top10">
-            
-        </div>
+        <h3>Län och antal invånare</h3>
+        <table>
+            <div th:each="pop : ${populations}" id="top10">
+                <tr>
+                    <td th:text="${populationsMap.get(pop).name}"></td>
+                    <td th:text="${#numbers.formatInteger(pop, 0, 'DEFAULT')}"></td>
+                </tr>
+            </div>
+        </table>
     </div>
 </div>
 <div th:replace="layout :: foot"></div>
